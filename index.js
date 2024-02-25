@@ -2,11 +2,11 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id") || "UCX6OQ3DkcsbYNE6H8uQQuVA";
 
 setInterval(() => {
-  fetch(`https://nia-statistics.com/api/get?platform=youtube&type=channel&id=${id}`).then((res) => res.json()).then((data) => {
-                     document.getElementById("counter").innerHTML = data.estSubCount;
+  fetch(`https://api-v2.nextcounts.com/api/youtube/channel/${id}`).then((res) => res.json()).then((data) => {
+                     document.getElementById("counter").innerHTML = data.subcount;
 
-    document.getElementById("userimg").src = data.snippet.thumbnails.high.url;
-    document.getElementById("userName").innerHTML = data.snippet.title;
+    document.getElementById("userimg").src = data.userImg;
+    document.getElementById("userName").innerHTML = data.username;
                   });
       }, 2000);
 
